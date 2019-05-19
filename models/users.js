@@ -14,15 +14,15 @@ module.exports = {
     });
     return user;
   },
-  delete: async function(db,id){
+  delete: async function(db,username){
     let users = db.get('users');
-    let ret = await users.remove({_id: id})
+    let ret = await users.remove({username: username})
     return ret;
   },
-  updatePassword: async function(db,id,password){
+  updatePassword: async function(db,username,password){
     let users = db.get('users');
     let user = users.findOneAndUpdate({
-      _id: id
+      username: username
     },{
       $set: {
         password: passowrder.hash(password)

@@ -22,8 +22,8 @@ router.post('/', function(req, res, next) {
   })
 });
 
-router.delete('/:id', function(req, res, next) {
-  users.delete(req.db,req.params.id)
+router.delete('/:username', function(req, res, next) {
+  users.delete(req.db,req.params.username)
   .then((ret) => {
     res.json(ret)
   })
