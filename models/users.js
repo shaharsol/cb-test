@@ -9,7 +9,7 @@ module.exports = {
   add: async function(db,data){
     let users = db.get('users');
     data.password = passowrder.hash(data.password)
-    let user = users.insert(data,{
+    let user = await users.insert(data,{
       new: true
     });
     return user;
@@ -21,7 +21,7 @@ module.exports = {
   },
   updatePassword: async function(db,username,password){
     let users = db.get('users');
-    let user = users.findOneAndUpdate({
+    let user = await users.findOneAndUpdate({
       username: username
     },{
       $set: {
