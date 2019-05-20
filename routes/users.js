@@ -40,12 +40,6 @@ router.patch('/password/:id', function(req, res, next) {
       res.json(user)
     }
   })
-  // .then((user) => {
-  //   res.json(user)
-  // })
-  // .catch((err) => {
-  //   res.send(500).status(err)
-  // })
 });
 
 module.exports = router;
