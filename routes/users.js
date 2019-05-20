@@ -23,23 +23,29 @@ router.post('/', function(req, res, next) {
 });
 
 router.delete('/:username', function(req, res, next) {
-  users.delete(req.db,req.params.username)
-  .then((ret) => {
-    res.json(ret)
-  })
-  .catch((err) => {
-    res.send(500).status(err)
+  users.delete(req.db,req.params.username,function(err,ret){
+    if(err){
+      res.send(500).status(err)
+    }else{
+      res.json(ret)
+    }
   })
 });
 
 router.patch('/password/:id', function(req, res, next) {
-  users.updatePassword(req.db,req.params.id,req.body.password)
-  .then((user) => {
-    res.json(user)
+  users.updatePassword(req.db,req.params.id,req.body.password,function(err,user){
+    if(err){
+      res.send(500).status(err)
+    }else{
+      res.json(user)
+    }
   })
-  .catch((err) => {
-    res.send(500).status(err)
-  })
+  // .then((user) => {
+  //   res.json(user)
+  // })
+  // .catch((err) => {
+  //   res.send(500).status(err)
+  // })
 });
 
 module.exports = router;

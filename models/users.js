@@ -14,14 +14,15 @@ module.exports = {
     });
     return user;
   },
-  delete: async function(db,username){
+  delete: function(db,username){
     let users = db.get('users');
-    let ret = await users.remove({username: username})
-    return ret;
+    users.remove({username: username},function(err,ret){
+      callback(err,ret)
+    })
   },
-  updatePassword: async function(db,username,password){
+  updatePassword: function(db,username,password){
     let users = db.get('users');
-    let user = await users.findOneAndUpdate({
+    users.findOneAndUpdate({
       username: username
     },{
       $set: {
@@ -29,7 +30,9 @@ module.exports = {
       }
     },{
       new: true
+    },function(err,user){
+      callback(err,user)
     })
-    return user
+    // return user
   }
 }

@@ -44,19 +44,23 @@ test('user list should contain 1 record',() => {
 })
 
 test('updatePassword should update the password in db',() => {
-  users.updatePassword(db,'shaharsol','654321')
-  .then((user) => {
+  users.updatePassword(db,'shaharsol','654321',function(err,user){
     expect(user.password).toEqual(passowrder.hash('654321'))
   })
-  .catch((err) => {
-  })
+  // .then((user) => {
+  //   expect(user.password).toEqual(passowrder.hash('654321'))
+  // })
+  // .catch((err) => {
+  // })
 })
 
 test('remove user should work',() => {
-  users.delete(db,'shaharsol')
-  .then((ret) => {
+  users.delete(db,'shaharsol',function(err,ret){
     expect(ret.deletedCount).toEqual(1)
   })
-  .catch((err) => {
-  })
+  // .then((ret) => {
+  //   expect(ret.deletedCount).toEqual(1)
+  // })
+  // .catch((err) => {
+  // })
 })
