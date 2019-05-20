@@ -33,6 +33,5 @@ module.exports = {
     },function(err,user){
       callback(err,user)
     })
-    // return user
   }
 }
