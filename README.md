@@ -2,7 +2,7 @@
 
 ### installation
 
-Clone the repo and then `npm install`. You'll also need a runing mongodb on the default port.
+Clone the repo and then `npm install`. You'll also need a runing mongodb on localhost:27017.
 
 ### run the tests
 
