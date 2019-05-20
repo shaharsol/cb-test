@@ -2,7 +2,7 @@
 
 ### installation
 
-clone the repo and then `npm install`
+Clone the repo and then `npm install`. You'll also need a runing mongodb on the default port.
 
 ### run the tests
 
@@ -15,4 +15,4 @@ clone the repo and then `npm install`
 ### notes
 
   * aysnc/await/promises vs callbacks - I implemented 2 endpoints with one method and the second one with the other method. async/await is more modern and considered new and advanced yet for this scenario, where no chaining of async actions is required, I personally feel the good old callback method is more clear and readable.
-  * there's a warning message when running the tests. I could have solved it probably if I had put in more time, but I believe we can ignore it. 
+  * There's a warning message when running the tests. I could have solved it probably if I had put in more time, but I believe we can ignore it.
